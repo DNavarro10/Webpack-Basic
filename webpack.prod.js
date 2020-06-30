@@ -20,14 +20,14 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                exclude: /globalStyle\.css$/,
+                exclude: /styles\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'
                 ]
             },
             {
-                test: /globalStyle\.css$/,
+                test: /styles\.css$/,
                 use: [
                     miniCSSstract.loader,
                     'css-loader'
