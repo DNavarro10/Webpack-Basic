@@ -1,14 +1,23 @@
-import '../CSS/componentes.css';
+import { Todo } from "../classes";
 
-export const saludar = (nombre) => {
+const divToDoList = document.querySelector('.todo-list');
 
-    console.log('Creando etiqueta h1');
+export const crearTodoHtml = (todo) => {
 
-    const h1 = document.createElement('h1');
 
-    h1.innerHTML = `WebPack, ${nombre}`;
+    const htmlToDo = `
+    <li class="${ (todo.completado) ? 'completed' : ''}" data-id="${ todo.id }">
+    <div class="view">
+        <input class="toggle" type="checkbox" ${ (todo.completado) ? 'checked' : ''}>
+            <label>${todo.tarea}</label>
+        <button class="destroy"></button>
+    </div>
+    <input class="edit" value="Create a TodoMVC template">
+   </li>`;
 
-    document.body.append( h1);
-    
+    divToDoList.innerHTML = divToDoList.innerHTML + htmlToDo;
+
+    return htmlToDo;
+
+
 }
-
