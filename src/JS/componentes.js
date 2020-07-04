@@ -1,6 +1,8 @@
 import { Todo } from "../classes";
+import { todoList} from '../index';
 
 const divToDoList = document.querySelector('.todo-list');
+const txtInput = document.querySelector('.new-todo');
 
 export const crearTodoHtml = (todo) => {
 
@@ -21,3 +23,18 @@ export const crearTodoHtml = (todo) => {
 
 
 }
+
+// eventos
+txtInput.addEventListener('keyup', ( event ) => {
+   
+    if ( event.keyCode === 13 && txtInput.value.length > 0 ) {
+        console.log(txtInput.value);
+        const nuevoTodo = new Todo( txtInput.value);
+        
+        todoList.nuevoTodo( nuevoTodo)
+
+        console.log(todoList);
+        crearTodoHtml( nuevoTodo );
+        txtInput.value = '';
+    }
+});
