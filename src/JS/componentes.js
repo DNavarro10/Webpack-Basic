@@ -1,8 +1,11 @@
 import { Todo } from "../classes";
 import { todoList} from '../index';
 
+//selectores
 const divToDoList = document.querySelector('.todo-list');
 const txtInput = document.querySelector('.new-todo');
+
+const toggle = document.querySelector('.toggle');
 
 export const crearTodoHtml = (todo) => {
 
@@ -33,8 +36,27 @@ txtInput.addEventListener('keyup', ( event ) => {
         
         todoList.nuevoTodo( nuevoTodo)
 
-        console.log(todoList);
+    
         crearTodoHtml( nuevoTodo );
         txtInput.value = '';
     }
 });
+
+divToDoList.addEventListener('click', (event) => {
+  
+
+    const nombreElemento = event.target.localName;
+    const todoElemento   = event.target.parentElement.parentElement;
+    const todoID         = todoElemento.getAttribute('data-id');
+
+    if ( nombreElemento.includes('input')){
+
+        todoList.marcarCompletado(todoID);
+        todoElemento.classList.toggle('completed');
+
+    }
+
+    console.log(todoList);
+  
+    
+})
