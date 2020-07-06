@@ -49,12 +49,21 @@ divToDoList.addEventListener('click', (event) => {
     const todoElemento   = event.target.parentElement.parentElement;
     const todoID         = todoElemento.getAttribute('data-id');
 
+    console.log(nombreElemento);
+
     if ( nombreElemento.includes('input')){
 
         todoList.marcarCompletado(todoID);
         todoElemento.classList.toggle('completed');
 
+    } else if (nombreElemento.includes('button')){
+        
+        todoList.eliminarTodo(todoID);
+        divToDoList.removeChild(todoElemento)
+        
+        
     }
+
 
     console.log(todoList);
   
