@@ -4,8 +4,7 @@ import { todoList} from '../index';
 //selectores
 const divToDoList = document.querySelector('.todo-list');
 const txtInput = document.querySelector('.new-todo');
-
-const toggle = document.querySelector('.toggle');
+const btnLimpiar = document.querySelector('.clear-completed');
 
 export const crearTodoHtml = (todo) => {
 
@@ -67,5 +66,20 @@ divToDoList.addEventListener('click', (event) => {
 
     console.log(todoList);
   
+    
+});
+
+btnLimpiar.addEventListener('click', () =>{
+
+    todoList.eliminarCompletados();
+    
+    for ( let i = divToDoList.children.length - 1; i >= 0 ; i --) {
+        const elemento = divToDoList.children[i];
+        
+        if(elemento.classList.contains('completed')){
+            divToDoList.removeChild(elemento);
+        }
+    }
+    
     
 })
