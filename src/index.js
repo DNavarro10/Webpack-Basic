@@ -8,15 +8,8 @@ import { crearTodoHtml } from './JS/componentes';
 
 export const todoList = new TodoList();
 
-const tarea = new Todo('Aprender Javascript!!')
+
+//localstorage
+todoList.todos.forEach( todo => crearTodoHtml(todo));
 
 
-todoList.nuevoTodo( tarea );
-
-tarea.completado = true;
-
-crearTodoHtml( tarea );
-
-// todoList.nuevoTodo(tarea);
-
-// console.log(TodoList);
