@@ -12,4 +12,6 @@ export const todoList = new TodoList();
 //localstorage
 todoList.todos.forEach( todo => crearTodoHtml(todo));
 
+todoList.todos[1].imprimirClase();
 
+console.log('Todos: ', todoList.todos);
